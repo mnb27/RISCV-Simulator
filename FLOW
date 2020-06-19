@@ -1,0 +1,22 @@
+----(Phase 2)----
+
+unpipelined.py   - fetch0.py
+		 - execute0.py
+
+driver.py  	->for GUI without step
+driver_step.py  ->for GUI with step
+
+
+
+-----(Phase 3)-----
+
+stalling_dataforwarding.py   - fetch1.py
+			     - execute1.py
+
+stall_no_dataforwarding.py   - fetch1.py
+			     - execute1.py
+
+pipeline_predictor.py 	  - fetch1.py
+			  - execute2.py
+
+REST FILES ARE COMMON !!
