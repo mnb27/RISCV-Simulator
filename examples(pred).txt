@@ -1,0 +1,177 @@
+Q1) count
+
+.data
+var1: .word 11
+.text
+lui x11  65536
+lw x1 0(x11)
+addi x12 x12 0
+addi x10 x0 2 
+Loop:
+beq x1 x0 End
+andi x3 x1 1
+add x12 x12 x3
+div x1 x1 x10
+beq x0 x0 Loop
+End:
+addi x0 x0 0
+
+
+Q2)bubble sort
+.data
+a: .word 10 -40 -30 -25 45 45 -10 24 2 42 22
+.text
+addi x8 x0 11 
+addi x9 x0 10
+addi x10 x0 1
+lui x18 65536
+addi  x11 x0 0 
+addi x24 x0 2
+jal x1 bubblesort
+beq x0 x0 exit
+bubblesort:
+beq x8 x10 ex
+addi x11 x0 0
+forloop:
+mul x12 x11 x24
+mul x12 x12 x24
+add x13 x18 x12
+lw x5 0(x13)
+lw x6 4(x13)
+blt x5 x6 leave
+sw x6 0(x13)
+sw x5 4(x13)
+leave:
+addi x11 x11 1
+blt x11 x9 forloop
+addi x8 x8 -1
+addi x2 x2 -4
+sw x1 0(x2)
+jal x1 bubblesort
+lw x1 0(x2)
+addi x2 x2 4
+ex:
+jalr x0 0(x1)
+exit:
+
+
+Q3) fib
+.text
+addi x5 x0 5
+addi x6 x0 2 
+jal x1 FIB
+beq x0 x0 EXIT
+FIB:
+bge x5 x6 REC 
+addi x7 x5 0    
+jalr x0 0(x1)
+REC:
+addi x2 x2 -12
+sw x1 0(x2)
+sw x5 4(x2)
+addi x5 x5 -1
+jal x1 FIB
+sw x7 8(x2)
+lw x5 4(x2) 
+addi x5 x5 -2
+jal x1 FIB 
+lw x13 8(x2)
+add x7 x13 x7
+lw x1 0(x2)
+addi x2 x2 12
+jalr x0 0(x1)
+EXIT:
+
+Q4)palindrome
+.data
+var1: .asciiz "rotor"
+.text
+lui x3 65536
+addi x20 x0 -1
+beq x0 x0 main_prog
+find_len:
+addi x2 x2 -12
+sw x4 0(x2)
+sw x5 4(x2)
+sw x6 8(x2)
+addi x4 x0 0
+startloop:
+add x5 x4 x3
+lw x6 0(x5)
+beq x6 x20 endloop
+addi x4 x4 1
+beq x0 x0 startloop
+endloop:
+add x10 x0 x4
+lw x4 0(x2)
+lw x5 4(x2)
+lw x6 8(x2)
+jalr x0 0(x1)
+main_prog:
+jal x1 find_len
+addi x4 x0 0
+addi x10 x10 -1
+addi x8 x0 1   
+startloop1:
+bge x4 x10 endloop1
+add x5 x3 x4
+lb x6 0(x5)
+add x5 x3 x10
+lb x7 0(x5)
+beq x6 x7 endif
+addi x8 x0 0
+beq x0 x0 endloop1
+endif:
+addi x4 x4 1
+addi x10 x10 -1
+beq x0 x0 startloop1
+endloop1:
+addi x0 x0 0
+
+Q)fact
+.text
+addi x10 x0 5
+jal x1 fact
+jal x0 End
+fact:
+addi x2 x2 -8
+sw x1 4(x2)
+sw x10 0(x2)
+addi x5 x10 -1
+addi x7 x0 1
+bge x5 x7 L1
+addi x10 x0 1
+addi x2 x2 8
+jalr x0 0(x1)
+L1: 
+addi x10 x10 -1
+jal x1 fact    
+addi x6 x10 0
+lw x10 0(x2)
+lw x1 4(x2)
+addi x2 x2 8
+mul x10 x10 x6
+jalr x0 0(x1)
+End:
+
+Q) first test
+.data
+a: .word 3
+.text
+L2:
+lui x11 65536
+lw x1 0(x11)
+addi x0 x0 0
+addi x12 x0 0
+addi x10 x0 2
+Loop:
+beq x1 x0 L1
+addi x1 x1 -1
+bne x10 x0 Loop
+L1:	
+addi x3 x0 4
+
+
+
+
+ 
