@@ -1,0 +1,13 @@
+:: STATS :: 
+The number of cycles are 9 
+The number of instructions executed are 3 
+The CPI of program is 3.0 
+The number of load and store instructions executed are 1 
+The number of ALU instructions executed are 2 
+The number of control instructions exeucted are 0 
+The number of stalls/bubbles in pipeline are 2 
+The number of data hazards are 1 
+The number of control hazards are 0 
+The number of Branch mispredictions are: 0 
+The number of stalls due to data hazard are 2 
+The number of stalls due to control hazard are 0 
