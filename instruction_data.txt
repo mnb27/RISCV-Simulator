@@ -1,0 +1,10 @@
+Fetch has been done in cycle number 14
+[]
+Decode has been done in cycle number 15
+[1, -1, -1, -48, 'UJ', 'jal']
+Execute has been done in cycle number 16
+[1, -1, -1, -48, 'UJ', 'jal', 64]
+ Memory access has been done in cycle number 17
+[1, -1, -1, -48, 'UJ', 'jal', 64, -1]
+Memory access has been done in cycle number 18
+Instruction has been completely executed and moved out of pipeline
